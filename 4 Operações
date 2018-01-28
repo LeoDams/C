@@ -1,28 +1,29 @@
-#include <stdlib.h>
+ #include <stdlib.h>
 
 int a,b,c,cont;
-int soma()
 
+int soma()          /*Função 1*/
 {
     a=b+c;
-
 }
-int subtracao()
+
+int subtracao()     /*Função 2*/
 {
     a=b-c;
+}
 
-}
-int divisao()
-{
-    a=b/c;
-}
-int multiplicacao()
+int multiplicacao() /*Função 3*/
 {
     a=b*c;
 }
-int main()
+
+int divisao()       /*Função 4*/
 {
-    int op;
+    a=b/c;
+}
+
+int main()          /*Funcao principal*/
+{
     printf("\nDigite dois valores");
     scanf("%d%d",&b,&c);
     MENU:
@@ -37,25 +38,27 @@ int main()
     printf("\n| 3 | Multiplicar");
     printf("\n| 4 | Dividir");
     printf("\n| 5 | Sair\n");
+    int op;
     scanf("%d",&op);
-    cont=cont+1;
-    switch(op)
+    cont=cont+1;                  /*Este contador alimenta a condição na linha 31*/
+    
+    switch(op)                    /* Inicio dos cases de seleção do MENU, cases chamam a função*/
     {
         case 1:
             soma(a);
-        goto MENU;
+        goto MENU;                /*Retorna ao menu principal*/
 
         case 2:
             subtracao(a);
-        goto MENU;
+        goto MENU;                /*Retorna ao menu principal*/
 
         case 3:
             multiplicacao(a);
-        goto MENU;
+        goto MENU;                /*Retorna ao menu principal*/
 
         case 4:
             divisao(a);
-        goto MENU;
+        goto MENU;                /*Retorna ao menu principal*/
 
         case 5:
         goto SAIR;

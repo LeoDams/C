@@ -1,0 +1,67 @@
+#include <stdlib.h>
+
+int a,b,c,cont;
+int soma()
+
+{
+    a=b+c;
+
+}
+int subtracao()
+{
+    a=b-c;
+
+}
+int divisao()
+{
+    a=b/c;
+}
+int multiplicacao()
+{
+    a=b*c;
+}
+int main()
+{
+    int op;
+    printf("\nDigite dois valores");
+    scanf("%d%d",&b,&c);
+    MENU:
+    system("cls");
+            if (cont>0)
+        {
+            printf("\n%i",a);
+        }
+    printf("\nO que voce deseja fazer?");
+    printf("\n| 1 | Somar");
+    printf("\n| 2 | Subtrair");
+    printf("\n| 3 | Multiplicar");
+    printf("\n| 4 | Dividir");
+    printf("\n| 5 | Sair\n");
+    scanf("%d",&op);
+    cont=cont+1;
+    switch(op)
+    {
+        case 1:
+            soma(a);
+        goto MENU;
+
+        case 2:
+            subtracao(a);
+        goto MENU;
+
+        case 3:
+            multiplicacao(a);
+        goto MENU;
+
+        case 4:
+            divisao(a);
+        goto MENU;
+
+        case 5:
+        goto SAIR;
+
+        default:printf("Digite apenas as opcoes");
+    }
+    SAIR:
+    return(0);
+}

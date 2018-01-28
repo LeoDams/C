@@ -1,4 +1,4 @@
- #include <stdlib.h>
+#include <stdlib.h>
 
 int a,b,c,cont;
 
@@ -24,7 +24,7 @@ int divisao()       /*Função 4*/
 
 int main()          /*Funcao principal*/
 {
-    printf("\nDigite dois valores");
+    printf("\nDigite dois valores\n");
     scanf("%d%d",&b,&c);
     MENU:
     system("cls");

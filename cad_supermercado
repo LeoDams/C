@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/*
+  Escrever um programa que cadastre vários produtos.
+  Em seguida, imprima uma lista com o código e nome da cada produto.
+  Por último, consulte o preço de um produto através de seu código.
+*/
+
+   typedef struct
+    {
+        char nome[50];
+        float preco;
+        long cod;
+
+    } produto;
+
+int main()
+    {
+    produto produtos[50];
+    	long code;
+	int op,i=0,j=0,DIM=0,teste;
+            INICIO:
+            printf("\n\n Deseja cadastrar? | < 1 > SIM | < 2 >  NAO |\n");
+            scanf("%i",&op);
+            switch (op)
+            {
+            case 1: {goto CADASTRAR;}
+            case 2: {goto SAIR;}
+            }
+            for (;;i++)
+                    {
+                    REFAZ: printf("\n\n Deseja cadastrar? | < 1 > |");
+                    printf("\n Consultar?        | < 2 > |");
+                    printf("\n SAIR              | < 3 > |\n");
+                    scanf("%i",&op);
+                    switch (op){
+                    case 1:{goto CADASTRAR;}
+                    case 2:{goto CONSULTAR;}
+                    case 3:{goto SAIR;}}
+
+            CADASTRAR: i=i+1;DIM=i;
+
+                    printf("\n CODIGO do %io produto:   \t",i);       scanf(" %i",&produtos[i].cod);
+                    printf("\n NOME   do %io produto:   \t",i);       scanf(" %s",&produtos[i].nome);
+                    printf("\n PRECO  do %io produto: R$\t",i);       scanf(" %f",&produtos[i].preco);
+                    system("cls");
+                    for (j=1;j<=DIM;j++){
+                    printf("\n Codigo %i: - %i",j,produtos[j].cod);}
+                    goto REFAZ;}
+
+            CONSULTAR:
+                    printf("\n Digite o codigo para consulta\t");
+                    scanf("%ld",&code);
+                    for (j=1;j<=DIM;j++){
+                    if (code==produtos[j].cod)
+                        {
+                        printf("\n O produto: %s - R$%.2f",produtos[j].nome,produtos[j].preco/100);
+                        goto INICIO;
+                        }
+                    if (code!=produtos[j].cod)
+                        {
+                        printf("\n >> CODIGO INVALIDO! <<");
+                        getch();
+                        system("cls");
+                        goto CONSULTAR;}}
+            SAIR: return 0;
+    }

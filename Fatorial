@@ -1,0 +1,34 @@
+#include <stdlib.h>
+#include <stdio.h>
+
+int main()
+{
+    int i,n,x,op,aux;
+    int fat[100];
+    {
+    printf("Digite um numero para fatorar\t");
+    scanf("\n%d",&n);
+    x=n;                               //Cria uma proteção para o numero n//
+    op=n;                             //Cria uma segunda proteção para o numero n//
+    printf("\n O fatorial de %d ",n); //Imprime o numero digitado junto ao resultado//
+    }
+        do
+            {
+                op=op-1;       //Subtrai uma unidade do numero inicial//
+                fat[i]=x*op;  //Gera o fatorial//
+                x=fat[i];    //Carrega o fatorial no numero protegido//
+            }
+        while (op>1);
+                    printf("= %d ",fat[i]);
+                    op=n;
+                    x=n;
+        for (i=n;i>1;i--)
+        {
+                op=op-1;       //Subtrai uma unidade do numero inicial//
+                aux=x;
+                fat[i]=x*op;  //Gera o fatorial//
+                x=fat[i];    //Carrega o fatorial no numero protegido//
+                printf("\n  (%d * %d) = %d",op,aux,fat[i]);
+        }
+    return (0);
+}

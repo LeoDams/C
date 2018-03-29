@@ -1,0 +1,29 @@
+#include <iostream>
+#include <stdlib.h>
+#include <stdio.h>
+
+int main()
+{
+int     a=50,i=0,b=0,c=0,j=0;
+int primo[25];
+    
+    for( i = a; i > 0; i--)
+	{
+		b = a - 1;
+		c = a % b;
+		if (c == 0)
+		{
+			j++;
+			if (j == 2)
+			{
+				primo[i] = b;
+			}
+		}
+		printf("\n %d",a);
+		printf("\n %d",b);
+		printf("\n %d",c);
+		a=b;
+	}
+	
+    return 0;       
+}

@@ -1,0 +1,124 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node{
+	int info;
+	struct node *proximo, *anterior;
+
+};
+typedef struct node *no;
+
+//Declaração de funções
+
+no getnode();
+void freenode(no p);
+no inserirDepois(no info, int dado);
+no deletar (no p);
+int tamanho(no lista, int count);
+int imprime(no lista);
+no busca (int x, no *p);
+
+no getnode(){
+
+	no p;
+	p = (no) malloc(sizeof(struct node));
+	p->proximo = NULL;
+	p->anterior = NULL;
+	p->info = 0;
+	return (p);
+
+}
+
+void freenode(no p){
+	free(p);
+
+}
+
+no inserirDepois ( no p, int x)
+
+{
+	no q = getnode();
+	no r;
+
+	if(p == NULL){
+
+		printf("ERROR: %s", "Inserção vazia!");
+		exit(1);
+
+	}
+	q = getnode();
+	q->info = x;
+	r = p->proximo;
+	q->proximo = r;
+	q->anterior = p;
+	p->proximo = q;
+	return p;
+}
+
+no deletar (no p){
+	no q = getnode();
+	no r = getnode();
+	
+	if(p == NULL){
+
+		printf("ERROR: %s", "Deleção vazia!");
+		exit(1);
+
+	}else{
+		q = p->anterior;
+		r = p->proximo;
+		r->anterior = q;
+		freenode(p);
+		return r;
+	}
+	return NULL;
+}
+
+int tamanho(no lista, int count){
+
+	if(lista->proximo != NULL){
+		count ++;
+		tamanho(lista->proximo, count);
+	}else{
+		count++;
+		return count;
+	}
+}
+
+int imprime(no lista){
+
+	if(lista != NULL){
+		printf("%d -> ",lista->info);
+		imprime(lista->proximo);
+	}
+}
+
+no busca (int x, no *p){
+   no aux;
+   aux = *p
+   while (aux != NULL && aux->info != x)
+      aux = aux->proximo;
+   return aux;
+}
+
+int main() {
+
+	no lista = NULL;
+	lista = getnode();
+	lista = inserirDepois(lista, 10);
+	lista = inserirDepois(lista, 20);
+	lista = inserirDepois(lista, 30);
+	lista = inserirDepois(lista, 50);
+	int count = 0;
+	count = tamanho(lista, count);
+	printf("\nA lista tem %d elementos. \n", count);
+	imprime(lista);
+	no tmplista = NULL;
+	int y = 30;
+	tmplista = deletar(lista);
+	tmplista = deletar(tmplista);
+	count = 0;
+	count = tamanho(tmplista, count);
+	printf("\nA lista tem %d elementos. \n", count);
+	imprime(tmplista);
+}
